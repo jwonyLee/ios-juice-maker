@@ -25,15 +25,15 @@ final class JuiceMakerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("⛔️viewWillAppear⛔️")
         self.updateFruitStock()
     }
     
     @IBAction func presentUpdateStockScene() {
         let updateStockViewController: UpdateStockViewController = .instantiate()
         updateStockViewController.fruitStore = self.fruitStore
-        updateStockViewController.modalPresentationStyle = .fullScreen
-        updateStockViewController.modalTransitionStyle = .coverVertical
         let navigationController: UINavigationController = UINavigationController(rootViewController: updateStockViewController)
+        navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
     }
     
