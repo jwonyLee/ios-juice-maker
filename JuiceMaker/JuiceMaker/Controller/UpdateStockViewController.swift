@@ -21,7 +21,7 @@ final class UpdateStockViewController: UIViewController, StoryboardBindable {
     @IBOutlet weak var kiwiStockStepper: UIStepper!
     @IBOutlet weak var mangoStockStepper: UIStepper!
     
-
+    // MARK: - Properties
     var fruitStore: FruitStore?
     
     override func viewDidLoad() {
@@ -37,7 +37,22 @@ final class UpdateStockViewController: UIViewController, StoryboardBindable {
         }
         let changedStock: Number = Number(Int(sender.value))
         self.fruitStore?.changeFruitStock(fruit: fruit, to: changedStock)
-        self.setupFruitStock()
+        self.updateUI(fruit: fruit, to: changedStock)
+    }
+    
+    func updateUI(fruit: Fruit, to amount: Number) {
+        switch fruit {
+        case .strawberry:
+            self.strawberryStockLabel.text = "\(amount)"
+        case .banana:
+            self.bananaStockLabel.text = "\(amount)"
+        case .kiwi:
+            self.kiwiStockLabel.text = "\(amount)"
+        case .pineapple:
+            self.pineappleStockLabel.text = "\(amount)"
+        case .mango:
+            self.mangoStockLabel.text = "\(amount)"
+        }
     }
     
 }
@@ -74,11 +89,11 @@ extension UpdateStockViewController {
             return
         }
         DispatchQueue.main.async {
-            self.strawberryStockLabel.text = "\(fruitStore.fruits[.strawberry, default: Number()])"
-            self.bananaStockLabel.text = "\(fruitStore.fruits[.banana, default: Number()])"
-            self.pineappleStockLabel.text = "\(fruitStore.fruits[.pineapple, default: Number()])"
-            self.kiwiStockLabel.text = "\(fruitStore.fruits[.kiwi, default: Number()])"
-            self.mangoStockLabel.text = "\(fruitStore.fruits[.mango, default: Number()])"
+            self.strawberryStockLabel.text = "\(fruitStore.fruits[.strawberry, default: 0])"
+            self.bananaStockLabel.text = "\(fruitStore.fruits[.banana, default: 0])"
+            self.pineappleStockLabel.text = "\(fruitStore.fruits[.pineapple, default: 0])"
+            self.kiwiStockLabel.text = "\(fruitStore.fruits[.kiwi, default: 0])"
+            self.mangoStockLabel.text = "\(fruitStore.fruits[.mango, default: 0])"
         }
     }
 }

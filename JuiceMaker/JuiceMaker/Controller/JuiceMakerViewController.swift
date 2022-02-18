@@ -25,7 +25,6 @@ final class JuiceMakerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("⛔️viewWillAppear⛔️")
         self.updateFruitStock()
     }
     
@@ -83,11 +82,11 @@ final class JuiceMakerViewController: UIViewController {
 extension JuiceMakerViewController {
     private func updateFruitStock() {
         DispatchQueue.main.async {
-            self.strawberryStockLabel.text = "\(self.fruitStore.fruits[.strawberry, default: Number()])"
-            self.bananaStockLabel.text = "\(self.fruitStore.fruits[.banana, default: Number()])"
-            self.pineappleStockLabel.text = "\(self.fruitStore.fruits[.pineapple, default: Number()])"
-            self.kiwiStockLabel.text = "\(self.fruitStore.fruits[.kiwi, default: Number()])"
-            self.mangoStockLabel.text = "\(self.fruitStore.fruits[.mango, default: Number()])"
+            self.strawberryStockLabel.text = "\(self.fruitStore.fruits[.strawberry, default: 0])"
+            self.bananaStockLabel.text = "\(self.fruitStore.fruits[.banana, default: 0])"
+            self.pineappleStockLabel.text = "\(self.fruitStore.fruits[.pineapple, default: 0])"
+            self.kiwiStockLabel.text = "\(self.fruitStore.fruits[.kiwi, default: 0])"
+            self.mangoStockLabel.text = "\(self.fruitStore.fruits[.mango, default: 0])"
         }
     }
 }
