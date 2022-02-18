@@ -89,4 +89,19 @@ class FruitStoreTests: XCTestCase {
         // then
         XCTAssertEqual(result, expectation)
     }
+    
+    func test_hasStock_초기재고에서_키위의_재고가_7개_이상_있다() {
+        // given
+        let inputFruit: Fruit = .kiwi
+        let inputAmount: Number = 7
+        
+        // when
+        guard let result: Bool = fruitStore?.hasStock(of: inputFruit, to: inputAmount) else {
+            XCTFail("fruitStore is Nil")
+            return
+        }
+        
+        // then
+        XCTAssertTrue(result)
+    }
 }

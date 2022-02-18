@@ -29,7 +29,8 @@ final class FruitStore {
     }
     
     func hasStock(of fruit: Fruit, to count: Number) -> Bool {
-        if self.fruits[fruit, default: 0] >= count {
+        if let stock: Number = self.fruits[fruit],
+           stock >= count {
             return true
         }
         return false
