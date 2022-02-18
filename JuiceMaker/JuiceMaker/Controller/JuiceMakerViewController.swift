@@ -30,6 +30,7 @@ final class JuiceMakerViewController: UIViewController {
     
     @IBAction func presentUpdateStockScene() {
         let updateStockViewController: UpdateStockViewController = .instantiate()
+        updateStockViewController.fruitStore = self.fruitStore
         updateStockViewController.modalPresentationStyle = .fullScreen
         updateStockViewController.modalTransitionStyle = .coverVertical
         let navigationController: UINavigationController = UINavigationController(rootViewController: updateStockViewController)
