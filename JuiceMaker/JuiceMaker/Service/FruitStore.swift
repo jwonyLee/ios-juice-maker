@@ -17,15 +17,15 @@ final class FruitStore {
     }
     
     func changeFruitStock(fruit: Fruit, to amount: Number) {
-        self.fruits[fruit, default: 0] = amount
+        self.fruits[fruit] = amount
     }
     
     func increase(fruit: Fruit, to amount: Number) throws {
-        try self.fruits[fruit, default: 0].increase(amount)
+        try self.fruits[fruit]?.increase(amount)
     }
     
     func decrease(fruit: Fruit, to amount: Number) throws {
-        try self.fruits[fruit, default: 0].decrease(amount)
+        try self.fruits[fruit]?.decrease(amount)
     }
     
     func hasStock(of fruit: Fruit, to count: Number) -> Bool {
