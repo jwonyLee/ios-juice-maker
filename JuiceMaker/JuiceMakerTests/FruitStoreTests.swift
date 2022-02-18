@@ -75,4 +75,18 @@ class FruitStoreTests: XCTestCase {
         }
         
     }
+    
+    func test_changeFruitStock_딸기의_재고를_21개로_바꿀_수_있다() {
+        // given
+        let inputFruit: Fruit = .strawberry
+        let inputAmount: Number = 21
+        let expectation: Number = 21
+        
+        // when
+        fruitStore?.changeFruitStock(fruit: inputFruit, to: inputAmount)
+        let result: Number = fruitStore?.fruits[inputFruit, default: 0] ?? 0
+        
+        // then
+        XCTAssertEqual(result, expectation)
+    }
 }
